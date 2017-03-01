@@ -148,7 +148,7 @@ angular.module('yapp')
  * Controller of yapp
  */
 angular.module('yapp')
-  .controller('registerEmployeeController', ["$scope", "$state","SweetAlert","Employee", function($scope, $state, SweetAlert,Employee) {
+  .controller('registerEmployeeController', ["$scope", "$state","SweetAlert","Employee","$location",function($scope, $state, SweetAlert,Employee,$location) {
         $scope.user = {};
 
         $scope.submitForm=function($valid,$event){
@@ -164,7 +164,24 @@ angular.module('yapp')
                    closeOnConfirm: false}, 
                 function(){ 
                     Employee.create($scope.user).then(function (response) {
-                        console.warn(response);
+                        if(response.status){
+                            SweetAlert.swal({
+                               title: "ÉXITO",
+                               text: "Tu Registro se creó correctamente",
+                               type: "success",
+                               confirmButtonColor: "#DD6B55",
+                               confirmButtonText: "Ver Empleados",
+                               closeOnConfirm: true,
+                               closeOnCancel: false 
+                            }, 
+                            function(isConfirm){ 
+                               if (isConfirm) {
+                                  $location.url("/login");
+                               }
+                            });
+                        }else{
+                            SweetAlert.swal("Error", "Hay campos vacios", "error");
+                        }
                     });
                 });
             }else{

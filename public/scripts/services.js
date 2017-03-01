@@ -13,12 +13,7 @@ angular.module('yapp')
 			            email: todoData.email,
 			            phone: todoData.phone
 			      }).success(function(data) { 
-			          deferred.resolve({
-			            name: data.name,
-			            surname: data.surname,
-			            email: data.email,
-			            phone: data.phone
-			      	  });
+			          deferred.resolve(data);
 			       }).error(function(msg, code) {
 			          deferred.reject(msg);
 			       });
