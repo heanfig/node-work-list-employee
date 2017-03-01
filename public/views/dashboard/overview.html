@@ -11,16 +11,63 @@
 		</a>
 		
 		<div class="fr">
-		<h2>Overview <small>Why is Versatile Theme so awesome?</small></h2>
+		<h2>Registra <small> Tu empleado</small></h2>
 		</div>
-		<div class="jumbotron">
+		<div class="jumbotron" ng-controller="registerEmployeeController">
 			<div class="container">
-				<h1>Welcome!</h1>
-				I don't want to bloat this Versatile Theme Free Edition AngularJS Admin theme with a lot of plugins. To install plugins we have bower. Let's keep it real clean!<br /><br />
-				<p>
-					<a ui-sref="login" class="btn btn-primary btn-lg btn-white">Logout</a>
-				</p>
-				
+
+            <div class="row">
+                  <div class="col-xs-6">
+                      <div class="well">
+                          <form name="registerForm" name="registerForm" method="POST" ng-submit="submitForm(registerForm.$valid,$event)" novalidate>
+                              <div class="form-group">
+                                  <label for="username" class="control-label">Nombres</label>
+                                  <input type="text" ng-model="user.name" class="form-control" id="name" name="name" required placeholder="Nombres">
+                                  <span class="help-block"></span>
+                              </div>
+                              <div class="form-group">
+                                  <label for="username" class="control-label">Apellidos</label>
+                                  <input type="text" ng-model="user.surname" class="form-control" id="surname" name="surname" required placeholder="Apellidos">
+                                  <span class="help-block"></span>
+                              </div>
+                              <div class="form-group">
+                                  <label for="username" class="control-label">Correo Electronico</label>
+                                  <input type="text" ng-model="user.email" class="form-control" id="email" name="email" required placeholder="Correo">
+                                  <span class="help-block"></span>
+                              </div>
+                              <div class="form-group">
+                                  <label for="username" class="control-label">Teléfono</label>
+                                  <input type="text" ng-model="user.phone" class="form-control" id="phone" name="phone" required placeholder="Teléfono">
+                                  <span class="help-block"></span>
+                              </div>
+                              <p ng-show="registerForm.name.$error.minlength" class="help-block">Nombre es muy corto.</p>
+                              <p ng-show="registerForm.surname.$error.minlength" class="help-block">Apellidos son muy cortos.</p>
+                              <p ng-show="registerForm.phone.$error.minlength" class="help-block">Teléfono es muy corto.</p>
+                              <div class="checkbox" ng-show="false">
+                                  <label>
+                                      <input type="checkbox" name="remember" id="remember">Enviar Notificacion via EMAIL
+                                  </label>
+                              </div>
+								<p>
+									<button ng-disabled="registerForm.$invalid" type="submit" class="btn btn-primary btn-lg btn-white">
+										Registrar
+									</button>
+								</p>
+                          </form>
+                      </div>
+                  </div>
+                  <div class="col-xs-6">
+                      <p class="lead">Registra tu empleado</p>
+                      <ul class="list-unstyled" style="line-height: 2">
+                          <li><span class="fa fa-check text-success"></span> Registra tu empleado</li>
+                          <li><span class="fa fa-check text-success"></span> Envia Notificaciones</li>
+                          <li><span class="fa fa-check text-success"></span> Bloquea empleados en cualquier momento</li>
+                          <li><span class="fa fa-check text-success"></span> Rapida Accion</li>
+                          <li><span class="fa fa-check text-success"></span> Encuentra tu mejor opción</li>
+                          <li><a href="http://github.com/heanfig"><u>Y mucho más</u></a></li>
+                      </ul>
+                  </div>
+              </div>				
 			</div>
 		</div>
 	</snap-content>	
