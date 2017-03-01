@@ -86,7 +86,8 @@ angular.module('yapp', [
                 'ui.router',
                 'snap',
                 'ngAnimate',
-                'oitozero.ngSweetAlert'
+                'oitozero.ngSweetAlert',
+                'ultimateDataTableServices'
             ])
         .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.when('/dashboard', '/dashboard/overview');
@@ -188,4 +189,62 @@ angular.module('yapp')
                 SweetAlert.swal("Error", "Hay campos vacios", "error");
             }
         }
+  }]);
+
+
+'use strict';
+/**
+ * @ngdoc function
+ * @name yapp.controller:MainCtrl
+ * @description
+ * # MainCtrl
+ * Controller of yapp
+ */
+angular.module('yapp')
+  .controller('viewAllEmployeeController', ["$scope", "$state","SweetAlert","Employee","$location","datatable",function($scope, $state, SweetAlert,Employee,$location,datatable) {
+
+
+        var datatableConfig = {
+            "name":"simple_datatable",
+            "columns":[
+                {
+                    "header":"test",
+                    "property":"test",
+                    "order":true,
+                    "type":"text",
+                    "edit":true
+                },
+                {
+                    "header":"test2",
+                    "property":"test2",
+                    "order":true,
+                    "type":"text"
+                }
+            ],
+            "edit":{
+                "active":true,
+                "columnMode":true
+            },
+            "pagination":{
+                "mode":'local'
+            },
+            "order":{
+                "mode":'local'
+            },
+            "remove":{
+                "active":true,
+                "mode":'local'
+            }
+        };
+
+        //Simple exemple of data
+        var datatableData = [{"test":1, "test2":1000},{"test":1, "test2":1000},{"test":1, "test2":1000},
+        {"test":1, "test2":1000},{"test":1, "test2":1000},{"test":1, "test2":1000},
+        {"test":1, "test2":1000}];
+
+        //Init the datatable with his configuration
+        $scope.datatable = datatable(datatableConfig);
+        //Set the data to the datatable
+        $scope.datatable.setData(datatableData);
+
   }]);
