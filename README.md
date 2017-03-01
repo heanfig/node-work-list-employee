@@ -1,20 +1,14 @@
- _   _          _                _                                 
-| | | |        | |              | |                                
-| |_| |__   ___| |__   __ _  ___| | _____ _ ____      ____ _ _   _ 
-| __| '_ \ / _ \ '_ \ / _` |/ __| |/ / _ \ '__\ \ /\ / / _` | | | |
-| |_| | | |  __/ | | | (_| | (__|   <  __/ |   \ V  V / (_| | |_| |
- \__|_| |_|\___|_| |_|\__,_|\___|_|\_\___|_|    \_/\_/ \__,_|\__, |
-                                                              __/ |
-                                                             |___/ 
+```
+  _  _         _                            
+ | || |__ _ __| |_____ _ ___ __ ____ _ _  _ 
+ | __ / _` / _| / / -_) '_\ V  V / _` | || |
+ |_||_\__,_\__|_\_\___|_|  \_/\_/\__,_|\_, |
+                                       |__/ 
+```
+Ambiente de pruebas: **npm install**
 
-
-Ambiente de pruebas:
-npm install
-
-
-ANOTACIONES
-Para las dependencias adicionales yo use bower y gulp para hacerle merge a todos los componentes de angular excepto la logica de la aplicación pero las dependencias que se hicieron merge estan en trash/bower.json
-
+**ANOTACIONES** Para las dependencias adicionales yo use bower y gulp para hacerle merge a todos los componentes de angular excepto la logica de la aplicación pero las dependencias que se hicieron merge estan en trash/bower.json
+```
 {
   "name": "yapp",
   "version": "0.0.0",
@@ -37,7 +31,34 @@ Para las dependencias adicionales yo use bower y gulp para hacerle merge a todos
     "angular": "1.3.14"
   }
 }
+```
 
+**Referencias (FrontEnd)** https://github.com/start-angular/versatile-dashboard-theme
 
-Referencias
-(FrontEnd) https://github.com/start-angular/versatile-dashboard-theme
+### Tecnologías
+
+Esta hecho en
+
+* [AngularJS] - 
+* [Twitter Bootstrap] - Crea apps modernas
+* [node.js] - I/O para el backend
+* [Express] - Rápido Framework para nodejs
+* [Gulp] - the streaming build system
+* [MongoDB] - Bases de datos no relacionales
+* [jQuery] - duh
+
+**Free Software, Hell Yeah!**
+
+   [dill]: <https://github.com/joemccann/dillinger>
+   [git-repo-url]: <https://github.com/joemccann/dillinger.git>
+   [john gruber]: <http://daringfireball.net>
+   [df1]: <http://daringfireball.net/projects/markdown/>
+   [markdown-it]: <https://github.com/markdown-it/markdown-it>
+   [Ace Editor]: <http://ace.ajax.org>
+   [node.js]: <http://nodejs.org>
+   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
+   [jQuery]: <http://jquery.com>
+   [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
+   [express]: <http://expressjs.com>
+   [AngularJS]: <http://angularjs.org>
+   [Gulp]: <http://gulpjs.com>
