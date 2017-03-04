@@ -212,7 +212,7 @@ angular.module('yapp')
  */
 angular.module('yapp')
   .controller('root', ["$scope", "$location","user","SweetAlert", function($scope, $location, user,SweetAlert) {
-    $scope.user = {};
+      
   }]);
 
 'use strict';

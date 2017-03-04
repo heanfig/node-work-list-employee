@@ -9,6 +9,10 @@ Ambiente de pruebas: **npm install**
 
 **ANOTACIONES** Para las dependencias adicionales yo use bower y gulp para hacerle merge a todos los componentes de angular excepto la logica de la aplicación pero las dependencias que se hicieron merge estan en trash/bower.json
 ```
+
+![Dashboard](http://i.imgur.com/L9OuT7p.png)
+
+
 {
   "name": "yapp",
   "version": "0.0.0",
