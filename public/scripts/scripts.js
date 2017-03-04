@@ -107,13 +107,14 @@ angular.module('yapp', [
  * Controller of yapp
  */
 angular.module('yapp')
-  .controller('LoginCtrl', ["$scope", "$location", function($scope, $location) {
-
+  .controller('LoginCtrl', ["$scope", "$location","user", function($scope, $location, user) {
+    $scope.user = {};
     $scope.submit = function() {
-
-      $location.path('/dashboard');
-
-      return false;
+        user.LogIn().then(function (response) {
+            if(response.status){
+                $location.path('/dashboard');
+            }
+        });            
     }
 
   }]);
@@ -176,7 +177,7 @@ angular.module('yapp')
                             }, 
                             function(isConfirm){ 
                                if (isConfirm) {
-                                  $location.url("/login");
+                                  $location.url("/dashboard/reports");
                                }
                             });
                         }else{

@@ -1,4 +1,5 @@
 var Employee = require('./models/employee');
+var User = require('./models/user');
 
 function getEmployees(res) {
     Employee.find(function (err, todos) {
@@ -12,7 +13,13 @@ function getEmployees(res) {
 module.exports = function (app) {
 
     // api ---------------------------------------------------------------------
+    app.post('/api/login', function (req, res) {
+        res.json({
+            status:true
+        });
+    });
 
+    //Employee
     app.get('/api/employee', function (req, res) {
         getEmployees(res);
     });

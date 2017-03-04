@@ -36,4 +36,27 @@ angular.module('yapp')
 			   return deferred.promise;
 			}
 		}
-	}]);
+	}]).factory('user', ['$http','$q',function($http, $q) {
+		return {
+			LogIn : function() {
+			   var deferred = $q.defer();
+			   $http.post('/api/login',{})
+			   .success(function(data) { 
+		          deferred.resolve(data);
+		       }).error(function(msg, code) {
+		          deferred.reject(msg);
+		       });
+			   return deferred.promise;
+			},
+			clear: function() {
+				store.set('user', {});
+			},
+			Log: function( obj ) {
+				console.log( obj );
+			},
+			loggedIn: function() {
+				var user = _.isUndefined(store.get('user')) ? {} : store.get('user');
+				return !_.isEmpty(user) && !_.isEmpty(user.token) && !_.isUndefined(user.token);
+			},
+		}
+}]);
