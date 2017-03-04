@@ -86,8 +86,7 @@ angular.module('yapp', [
                 'ui.router',
                 'snap',
                 'ngAnimate',
-                'oitozero.ngSweetAlert',
-                'ultimateDataTableServices'
+                'oitozero.ngSweetAlert'
             ])
         .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.when('/dashboard', '/dashboard/overview');
@@ -201,50 +200,50 @@ angular.module('yapp')
  * Controller of yapp
  */
 angular.module('yapp')
-  .controller('viewAllEmployeeController', ["$scope", "$state","SweetAlert","Employee","$location","datatable",function($scope, $state, SweetAlert,Employee,$location,datatable) {
+  .controller('viewAllEmployeeController', ["$scope", "$state","SweetAlert","Employee","$location",function($scope, $state, SweetAlert,Employee,$location) {
 
+    Employee.get().then(function (response) {
+        /*if(response.status){
+            
+        }else{
+            SweetAlert.swal("Error", "Hay campos vacios", "error");
+        }*/
+        $scope.employess = response;
+    });
 
-        var datatableConfig = {
-            "name":"simple_datatable",
-            "columns":[
-                {
-                    "header":"test",
-                    "property":"test",
-                    "order":true,
-                    "type":"text",
-                    "edit":true
-                },
-                {
-                    "header":"test2",
-                    "property":"test2",
-                    "order":true,
-                    "type":"text"
-                }
-            ],
-            "edit":{
-                "active":true,
-                "columnMode":true
-            },
-            "pagination":{
-                "mode":'local'
-            },
-            "order":{
-                "mode":'local'
-            },
-            "remove":{
-                "active":true,
-                "mode":'local'
-            }
-        };
+    $scope.removeEmployee = function($id){
 
-        //Simple exemple of data
-        var datatableData = [{"test":1, "test2":1000},{"test":1, "test2":1000},{"test":1, "test2":1000},
-        {"test":1, "test2":1000},{"test":1, "test2":1000},{"test":1, "test2":1000},
-        {"test":1, "test2":1000}];
+        SweetAlert.swal({
+           title: "¿Estas Seguro?",
+           text: "Se eliminará un empleado",
+           type: "warning",
+           showCancelButton: true,
+           confirmButtonColor: "#DD6B55",
+           confirmButtonText: "Si, Elimarlo",
+           closeOnConfirm: false}, 
+        function(){ 
+            Employee.delete($id).then(function (response) {
+                //if(response.status){
+                    SweetAlert.swal({
+                       title: "ÉXITO",
+                       text: "Tu Registro se eliminó correctamente",
+                       type: "success",
+                       confirmButtonColor: "#DD6B55",
+                       confirmButtonText: "Cerrar",
+                       closeOnConfirm: true,
+                       closeOnCancel: false 
+                    }, 
+                    function(isConfirm){ 
+                       if (isConfirm) {
+                          $scope.employess = response;
+                       }
+                    });
+                /*}else{
+                    SweetAlert.swal("Error", "Hay campos vacios", "error");
+                }*/
+            });
+        });
 
-        //Init the datatable with his configuration
-        $scope.datatable = datatable(datatableConfig);
-        //Set the data to the datatable
-        $scope.datatable.setData(datatableData);
+    };
 
-  }]);
+}]);

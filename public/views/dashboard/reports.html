@@ -18,13 +18,42 @@
 		<span class="glyphicon glyphicon-dashboard bg-fade"></span>
 		<div class="jumbotron" ng-controller="viewAllEmployeeController">
 			<div class="container">
-				<h3>Empleados</h3>
-				<p>
-					
-				</p>
 
-
-				<div class="col-md-12 col-lg-12" ultimate-datatable="datatable"></div>
+					<div class="container-fluid">
+					   <div class="plans col-md-12 col-sm-12 col-xs-12 text-center">
+					      <h5>EMPLEADOS</h5>
+					   </div>
+					</div>
+					<!--container-fluid close-->
+					<section>
+					   <div class="container">
+					      <div class="row">
+					         <!-- item -->
+					         <div class="col-md-4 col-sm-4 col-xs-12 text-center" ng-repeat="employee in employess">
+					            <div class="panel panel-pricing">
+					               <div class="panel-heading">
+					                  <i class="fa fa-briefcase"></i>
+					                  <h3>{{name}}</h3>
+					               </div>
+					               <!--panel-body text-center close-->
+					               <div class="panel-body text-center">
+					                  <p class="p-price">{{employee.name == "" ? "- Sin Nombre -" : employee.name}}</p>
+					                  <p class="p-price">{{employee.email == "" ? "- Sin correo -" : employee.email}}</p>
+					               </div>
+					               <!--panel-body text-center close-->
+					               <div class="panel-footer">
+					                  <a class="btn sub-btn" href="#">EDITAR</a>
+					                  <a class="btn sub-btn" href="#" ng-click="removeEmployee(employee._id)">ELIMINAR</a>
+					               </div>
+					            </div>
+					            <!--panel panel-pricing close-->
+					         </div>
+					         <!--col-md-4 col-sm-4 col-xs-12 text-center close-->
+					      </div>
+					      <!--row close-->
+					   </div>
+					</section>
+					<!--section close-->
 
 			</div>
 		</div>

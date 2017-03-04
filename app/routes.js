@@ -5,7 +5,7 @@ function getEmployees(res) {
         if (err) {
             res.send(err);
         }
-        res.json(todos); // return all todos in JSON format
+        res.json(todos); 
     });
 };
 
@@ -13,10 +13,10 @@ module.exports = function (app) {
 
     // api ---------------------------------------------------------------------
 
-/*    app.get('/api/todos', function (req, res) {
-        getTodos(res);
+    app.get('/api/employee', function (req, res) {
+        getEmployees(res);
     });
-*/
+
     // create todo and send back all todos after creation
     app.post('/api/employee', function (req, res) {
         Employee.create({
@@ -38,17 +38,16 @@ module.exports = function (app) {
 
     });
 
-/*    app.delete('/api/todos/:todo_id', function (req, res) {
+    app.delete('/api/employee/:id', function (req, res) {
         Employee.remove({
-            _id: req.params.todo_id
+            _id: req.params.id
         }, function (err, todo) {
             if (err)
                 res.send(err);
-
-            getTodos(res);
+            getEmployees(res);
         });
     });
-*/
+
     app.get('*', function (req, res) {
         res.sendFile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
     });
