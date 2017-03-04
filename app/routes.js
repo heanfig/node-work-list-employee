@@ -14,9 +14,27 @@ module.exports = function (app) {
 
     // api ---------------------------------------------------------------------
     app.post('/api/login', function (req, res) {
-        res.json({
-            status:true
+
+        var email = req.body.email;
+        var pass = req.body.pass;
+
+        User.find({
+            email : email,
+            pass : pass
+        },
+        function (err, person) {
+            if(err){
+                res.json({
+                    status:false
+                });
+            }else{
+                res.json({
+                    status:true,
+                    user:person
+                });
+            }
         });
+
     });
 
     //Employee

@@ -38,11 +38,16 @@ angular.module('yapp')
 		}
 	}]).factory('user', ['$http','$q',function($http, $q) {
 		return {
-			LogIn : function() {
+			LogIn : function($userdata) {
+			   var $that = this;
 			   var deferred = $q.defer();
-			   $http.post('/api/login',{})
+			   $http.post('/api/login',$userdata)
 			   .success(function(data) { 
-		          deferred.resolve(data);
+			   		if(data.status){
+		          		deferred.resolve(data);
+			   		}else{
+		          		deferred.reject(msg);
+			   		}
 		       }).error(function(msg, code) {
 		          deferred.reject(msg);
 		       });
@@ -53,6 +58,16 @@ angular.module('yapp')
 			},
 			Log: function( obj ) {
 				console.log( obj );
+			},
+			setToken: function(token) {
+				var user = _.isUndefined(store.get('user')) ? {} : store.get('user');
+				user.token = btoa(token);
+				store.set('user', user);
+			},
+			setID: function(id) {
+				var user = _.isUndefined(store.get('user')) ? {} : store.get('user');
+				user.id = id;
+				store.set('user', user);
 			},
 			loggedIn: function() {
 				var user = _.isUndefined(store.get('user')) ? {} : store.get('user');

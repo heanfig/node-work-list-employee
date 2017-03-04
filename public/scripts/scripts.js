@@ -53,7 +53,7 @@ var states = [{
             parent: 'dashboard',
             templateUrl: 'views/dashboard/overview.html',
             data: {
-                text: "Overview",
+                text: "Registro Empleado",
                 visible: true
             }
         }
@@ -65,7 +65,7 @@ var states = [{
             parent: 'dashboard',
             templateUrl: 'views/dashboard/reports.html',
             data: {
-                text: "Reports",
+                text: "Ver Empleados",
                 visible: true
             }
         }
@@ -75,7 +75,7 @@ var states = [{
         state: {
             url: '/login',
             data: {
-                text: "Logout",
+                text: "Cerrar Sesión",
                 visible: true
             }
         }
@@ -107,12 +107,22 @@ angular.module('yapp', [
  * Controller of yapp
  */
 angular.module('yapp')
-  .controller('LoginCtrl', ["$scope", "$location","user", function($scope, $location, user) {
+  .controller('LoginCtrl', ["$scope", "$location","user","SweetAlert", function($scope, $location, user,SweetAlert) {
     $scope.user = {};
     $scope.submit = function() {
-        user.LogIn().then(function (response) {
+        user.LogIn($scope.user).then(function (response) {
             if(response.status){
-                $location.path('/dashboard');
+                if(response.user.length == 0){
+                    SweetAlert.swal({
+                       title: "Error",
+                       text: "Contraseña Incorrecta",
+                       type: "error"
+                    });
+                }else{
+                    user.setID(response.user._id);
+                    user.setToken(response.user._id);
+                    $location.path('/dashboard');
+                }
             }
         });            
     }

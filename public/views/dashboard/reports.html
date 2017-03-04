@@ -33,12 +33,11 @@
 					            <div class="panel panel-pricing">
 					               <div class="panel-heading">
 					                  <i class="fa fa-briefcase"></i>
-					                  <h3>{{name}}</h3>
 					               </div>
 					               <!--panel-body text-center close-->
 					               <div class="panel-body text-center">
 					                  <p class="p-price">{{employee.name == "" ? "- Sin Nombre -" : employee.name}}</p>
-					                  <p class="p-price">{{employee.email == "" ? "- Sin correo -" : employee.email}}</p>
+					                  <p class="p-price">{{employee.email == "" ? "- Sin correo -" : employee.email}} / {{employee.phone == "" ? "- Sin correo -" : employee.phone}}</p>
 					               </div>
 					               <!--panel-body text-center close-->
 					               <div class="panel-footer">
