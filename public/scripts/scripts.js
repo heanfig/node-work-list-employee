@@ -211,6 +211,19 @@ angular.module('yapp')
  * Controller of yapp
  */
 angular.module('yapp')
+  .controller('root', ["$scope", "$location","user","SweetAlert", function($scope, $location, user,SweetAlert) {
+    $scope.user = {};
+  }]);
+
+'use strict';
+/**
+ * @ngdoc function
+ * @name yapp.controller:MainCtrl
+ * @description
+ * # MainCtrl
+ * Controller of yapp
+ */
+angular.module('yapp')
   .controller('viewAllEmployeeController', ["$scope", "$state","SweetAlert","Employee","$location",function($scope, $state, SweetAlert,Employee,$location) {
 
     Employee.get().then(function (response) {
