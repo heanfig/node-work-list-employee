@@ -75,13 +75,22 @@ Server Side JS Injection (SSJI)
 ![Dashboard](http://i.imgur.com/VwunPoD.png)
 ![Dashboard](http://i.imgur.com/8F60w0p.png)
 
+
+
+
 - Vulnerabilidades en gestión de sesiones (session timeout y cookies no protegidas,password guessing, etc.)
 
 ![Dashboard](http://i.imgur.com/30Mf6vm.png)
 
+
+
+
 - Regex DDOS
 
 ![Dashboard](http://i.imgur.com/g7tFgNB.png)
+
+
+
 
 - HTTP Parameter Pollution (HPP)(ASUMIENDO QUE ESTA RUTA ES VIA SERVER)
 
