@@ -78,3 +78,7 @@ Server Side JS Injection (SSJI)
 - Vulnerabilidades en gestión de sesiones (session timeout y cookies no protegidas,password guessing, etc.)
 
 ![Dashboard](http://i.imgur.com/30Mf6vm.png)
+
+- Regex DDOS
+
+![Dashboard](http://i.imgur.com/g7tFgNB.png)

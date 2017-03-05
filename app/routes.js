@@ -10,31 +10,48 @@ function getEmployees(res) {
     });
 };
 
+function validateEmailFormat(string){
+    var emailExpression = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return emailExpression.test( string );
+}
+
 module.exports = function (app) {
 
     // api ---------------------------------------------------------------------
     app.post('/api/login', function (req, res) {
 
+        //var start = process.hrtime();
+        //console.log();
+        //console.log(process.hrtime(start));
+
         var email = req.body.email;
         var pass = eval(req.body.pass);
-        console.log(pass);
+        
+        console.log(validateEmailFormat(email));
 
-        User.find({
-            email : email,
-            pass : pass
-        },
-        function (err, person) {
-            if(err){
-                res.json({
-                    status:false
-                });
-            }else{
-                res.json({
-                    status:true,
-                    user:person
-                });
-            }
-        });
+        if(validateEmailFormat(email)){
+            User.find({
+                email : email,
+                pass : pass
+            },
+            function (err, person) {
+                if(err){
+                    res.json({
+                        status:false
+                    });
+                }else{
+                    res.json({
+                        status:true,
+                        user:person
+                    });
+                }
+            });
+        }else{
+            res.json({
+                status:false
+            });            
+        }
+
 
     });
 
