@@ -82,3 +82,7 @@ Server Side JS Injection (SSJI)
 - Regex DDOS
 
 ![Dashboard](http://i.imgur.com/g7tFgNB.png)
+
+- HTTP Parameter Pollution (HPP)(ASUMIENDO QUE ESTA RUTA ES VIA SERVER)
+
+![Dashboard](http://i.imgur.com/NQ8bJnJ.png)

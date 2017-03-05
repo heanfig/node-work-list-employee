@@ -60,6 +60,16 @@ module.exports = function (app) {
         getEmployees(res);
     });
 
+    //Employee
+    app.get('/pollution', function (req, res) {
+        var nombre = req.query.nombre;
+        if(~nombre.indexOf("password")){
+            res.end("<h1>BIENVENIDO</h1>" + JSON.stringify(nombre));
+        }else{
+            res.end("<h1>ACCESO NEGADO</h1>" + nombre);
+        }
+    });
+
     // create todo and send back all todos after creation
     app.post('/api/employee', function (req, res) {
         Employee.create({
@@ -91,7 +101,7 @@ module.exports = function (app) {
         });
     });
 
-    app.get('*', function (req, res) {
+    app.get('/', function (req, res) {
         res.sendFile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
     });
 };
