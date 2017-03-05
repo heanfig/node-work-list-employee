@@ -211,8 +211,25 @@ angular.module('yapp')
  * Controller of yapp
  */
 angular.module('yapp')
-  .controller('root', ["$scope", "$location","user","SweetAlert", function($scope, $location, user,SweetAlert) {
-      
+  .run(["$rootScope", "$location","user","SweetAlert","$state", function($rootScope, $location, user,SweetAlert,$state) {
+      $rootScope.$on('$stateChangeStart', function(event, current, toParams, next, fromParams) { 
+          var requireLogin = ["reports","overview"];
+          if(current.name == "login"){
+              if( user.loggedIn() ){
+                event.preventDefault();
+                $state.go('overview');
+              }else{
+                console.log("continue");
+              }
+          }else{
+              if( user.loggedIn() && ~requireLogin.indexOf(current.name)){
+                console.log("continue");
+              }else{
+                event.preventDefault();
+                $state.go('login');
+              }
+          }
+      });
   }]);
 
 'use strict';
