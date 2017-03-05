@@ -9,6 +9,16 @@ Ambiente de pruebas: **npm install**
 
 **ANOTACIONES** Para las dependencias adicionales yo use bower y gulp para hacerle merge a todos los componentes de angular excepto la logica de la aplicación pero las dependencias que se hicieron merge estan en trash/bower.json
 
+**USUARIO Y CONTRASEÑA** 
+**USUARIO Y CONTRASEÑA** 
+
+usuario: heanfig@gmail.com
+password: 123456
+
+**USUARIO Y CONTRASEÑA** 
+**USUARIO Y CONTRASEÑA** 
+
+
 Archivos Importantes
 app/routes.js
 
@@ -49,6 +59,7 @@ Esta hecho en
 * [Twitter Bootstrap] - Crea apps modernas
 * [node.js] - I/O para el backend
 * [Express] - Rápido Framework para nodejs
+
 * [Gulp] - the streaming build system
 * [MongoDB] - Bases de datos no relacionales
 * [jQuery] - duh
