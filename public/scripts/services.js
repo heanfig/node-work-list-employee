@@ -56,6 +56,9 @@ angular.module('yapp')
 			clear: function() {
 				store.set('user', {});
 			},
+			clearAll: function() {
+				store.clear();
+			},
 			Log: function( obj ) {
 				console.log( obj );
 			},

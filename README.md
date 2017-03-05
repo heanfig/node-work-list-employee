@@ -66,3 +66,13 @@ Esta hecho en
    [express]: <http://expressjs.com>
    [AngularJS]: <http://angularjs.org>
    [Gulp]: <http://gulpjs.com>
+
+
+### Fallos de seguridad
+
+Server Side JS Injection (SSJI)
+
+PROCESO DE INICIO DE SESIÓN => contraseña
+
+![Dashboard](http://i.imgur.com/8F60w0p.png)
+

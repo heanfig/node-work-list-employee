@@ -160,12 +160,18 @@ angular.module('yapp')
  * Controller of yapp
  */
 angular.module('yapp')
-.controller('rootController', ["$scope", "$state","$timeout", function($scope, $state, $timeout) {
+.controller('rootController', ["$scope", "$state","$timeout","user", function($scope, $state, $timeout, user) {
     $scope.changeRoute = function(){
-      $timeout(function() {
-        location.reload();
-      },1000);
+      if($state.current.name != "login"){
+        $timeout(function() {
+          location.reload();
+        },1000);
+      }
     };
+    $scope.closeSession = function(){
+      user.clearAll();
+      $state.go("login"); 
+    }
 }]);
 
 'use strict';
@@ -276,7 +282,7 @@ angular.module('yapp')
            title: "¿Estas Seguro?",
            text: "Se eliminará un empleado",
            type: "warning",
-           showCancelButton: true,
+           showCancelButton: false,
            confirmButtonColor: "#DD6B55",
            confirmButtonText: "Si, Elimarlo",
            closeOnConfirm: false}, 
