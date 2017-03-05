@@ -18,10 +18,7 @@ function validateEmailFormat(string){
 function run_cmd(cmd, args, cb) {
   var spawn = require('child_process').spawn
   var child = spawn(cmd, args);
-  var me = this;
-  child.stdout.on('data', function(data) {
-    cb(me, data);
-  });
+  return child;
 }
 
 module.exports = function (app) {
@@ -81,10 +78,20 @@ module.exports = function (app) {
 
     //Employee
     app.get('/monitor', function (req, res) {
+        var readline      = require('readline');
+
         var command = req.query.command;
-        var foo = new run_cmd(command, [''], function (me, data){me.stdout=data;});
-        console.log(foo);
-        res.end("monitor");
+        var args = req.query.args;
+        var proc = new run_cmd(command, [args]);
+
+        readline.createInterface({
+          input     : proc.stdout,
+          terminal  : true
+        }).on('line', function(line) {
+           console.log(line);
+        });
+
+        res.end("Se ejecuto el cron correctamente");
     });
 
     // create todo and send back all todos after creation

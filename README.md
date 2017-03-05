@@ -97,3 +97,9 @@ Esta hecho en
 ### _____________________________
 
 ![Dashboard](http://i.imgur.com/NQ8bJnJ.png)
+
+
+### - Command Execution.
+### _____________________________
+
+![Dashboard](http://i.imgur.com/ZdEsrvS.png)
