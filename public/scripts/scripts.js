@@ -84,9 +84,9 @@ var states = [{
    
 angular.module('yapp', [
                 'ui.router',
-                'snap',
                 'ngAnimate',
-                'oitozero.ngSweetAlert'
+                'oitozero.ngSweetAlert',
+                'snap',
             ])
         .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.when('/dashboard', '/dashboard/overview');
@@ -149,6 +149,24 @@ angular.module('yapp')
         }
     });
   }]);
+
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name yapp.controller:MainCtrl
+ * @description
+ * # MainCtrl
+ * Controller of yapp
+ */
+angular.module('yapp')
+.controller('rootController', ["$scope", "$state","$timeout", function($scope, $state, $timeout) {
+    $scope.changeRoute = function(){
+      $timeout(function() {
+        location.reload();
+      },600);
+    };
+}]);
 
 'use strict';
 /**
