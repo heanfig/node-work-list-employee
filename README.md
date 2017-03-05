@@ -70,7 +70,8 @@ Esta hecho en
 
 ### Fallos de seguridad
 
-Server Side JS Injection (SSJI)
+### Server Side JS Injection (SSJI)
+### _____________________________
 
 ![Dashboard](http://i.imgur.com/VwunPoD.png)
 ![Dashboard](http://i.imgur.com/8F60w0p.png)
@@ -78,20 +79,19 @@ Server Side JS Injection (SSJI)
 
 
 
-- Vulnerabilidades en gestión de sesiones (session timeout y cookies no protegidas,password guessing, etc.)
+### Vulnerabilidades en gestión de sesiones (session timeout y cookies no protegidas,password guessing, etc.)
+### _____________________________
 
 ![Dashboard](http://i.imgur.com/30Mf6vm.png)
 
 
-
-
-- Regex DDOS
+### _____________________________
+### Regex DDOS
 
 ![Dashboard](http://i.imgur.com/g7tFgNB.png)
 
 
-
-
-- HTTP Parameter Pollution (HPP)(ASUMIENDO QUE ESTA RUTA ES VIA SERVER)
+### HTTP Parameter Pollution (HPP)(ASUMIENDO QUE ESTA RUTA ES VIA SERVER)
+### _____________________________
 
 ![Dashboard](http://i.imgur.com/NQ8bJnJ.png)
