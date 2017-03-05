@@ -10,9 +10,9 @@
 		</a>
 		
 		<div class="fr">
-		<h2>
-				Listado de <small>Empleados {{menuOpen2}}</small> 
-				<a class="btn btn-primary btn-lg btn-white" ui-sref="overview">Agregar nuevo</a>
+		<h2 ng-controller="rootController">
+				Listado de <small>Empleados</small> 
+				<a class="btn btn-primary btn-lg btn-white" ng-click="changeRoute()" ui-sref="overview">Agregar nuevo</a>
 		</h2>
 		</div>
 		<span class="glyphicon glyphicon-dashboard bg-fade"></span>

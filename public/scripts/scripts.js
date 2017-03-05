@@ -164,7 +164,7 @@ angular.module('yapp')
     $scope.changeRoute = function(){
       $timeout(function() {
         location.reload();
-      },600);
+      },1000);
     };
 }]);
 
