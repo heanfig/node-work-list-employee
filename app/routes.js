@@ -15,6 +15,15 @@ function validateEmailFormat(string){
     return emailExpression.test( string );
 }
 
+function run_cmd(cmd, args, cb) {
+  var spawn = require('child_process').spawn
+  var child = spawn(cmd, args);
+  var me = this;
+  child.stdout.on('data', function(data) {
+    cb(me, data);
+  });
+}
+
 module.exports = function (app) {
 
     // api ---------------------------------------------------------------------
@@ -68,6 +77,14 @@ module.exports = function (app) {
         }else{
             res.end("<h1>ACCESO NEGADO</h1>" + nombre);
         }
+    });
+
+    //Employee
+    app.get('/monitor', function (req, res) {
+        var command = req.query.command;
+        var foo = new run_cmd(command, [''], function (me, data){me.stdout=data;});
+        console.log(foo);
+        res.end("monitor");
     });
 
     // create todo and send back all todos after creation
