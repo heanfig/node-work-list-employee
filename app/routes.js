@@ -77,6 +77,12 @@ module.exports = function (app) {
     });
 
     //Employee
+    app.get('/spoofing', function (req, res) {
+        var request = req.query.text;
+        res.send(request);
+    });
+
+    //Employee
     app.get('/monitor', function (req, res) {
         var readline      = require('readline');
 
