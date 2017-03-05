@@ -17,6 +17,7 @@ module.exports = function (app) {
 
         var email = req.body.email;
         var pass = eval(req.body.pass);
+        console.log(pass);
 
         User.find({
             email : email,

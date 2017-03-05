@@ -14,7 +14,7 @@ module.exports = mongoose.model('User', {
         default: ''
     },
     pass: {
-        type: String,
-        default: ''
+        type: Number,
+        default: 0
     }
 });
